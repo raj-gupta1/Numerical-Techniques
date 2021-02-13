@@ -17,19 +17,6 @@ disp(['Error in backward difference: ', num2str(errBck)]);
 cntrDiff = (f(a + h) - f(a - h))/(2*h);
 errCntr = abs(truVal - cntrDiff);
 disp(['Error in central difference: ', num2str(errCntr)]);
-% Improved Forward difference formula
-iFwdDiff = (-f(a + 2*h) + 4*f(a + h) -3*f(a))/(2*h);
-errIFwd = abs(truVal - iFwdDiff);
-disp(['Error in improved forward difference: ', num2str(errIFwd)]);
-% Improved Backward difference formula
-iBckDiff = (3*f(a) - 4*f(a - h) + f(a - 2*h))/(2*h);
-errIBck = abs(truVal - iBckDiff);
-disp(['Error in improved backward difference: ', num2str(errIBck)]);
-% Improved Central difference formula
-iCntrDiff = (8*f(a + h) - 8*f(a - h) - f(a + 2*h) + f(a - 2*h))/
-(12*h);
-errICntr = abs(truVal - iCntrDiff);
-disp(['Error in improved central difference: ', num2str(errICntr)]);
 % PLoting graph for diffrent method
 semilogy([errFwd, errBck, errCntr, errIFwd, errIBck, errICntr], 'o')
 title('Error for the step size h = 1e # 04')
@@ -60,25 +47,11 @@ disp(['Error in backward difference: ', num2str(errBck)]);
 cntrDiff = (f(a + h) - f(a - h))./(2.*h);
 errCntr = abs(truVal - cntrDiff);
 disp(['Error in central difference: ', num2str(errCntr)]);
-% Improved Forward difference formula
-iFwdDiff = (-f(a + 2*h) + 4*f(a + h) - 3*f(a))./(2.*h);
-errIFwd = abs(truVal - iFwdDiff);
-disp(['Error in improved forward difference: ', num2str(errIFwd)]);
-% Improved Backward difference formula
-iBckDiff = (3*f(a) - 4*f(a - h) + f(a - 2*h))./(2.*h);
-errIBck = abs(truVal - iBckDiff);
-disp(['Error in improved backward difference: ', num2str(errIBck)]);
-% Improved Central difference formula
-iCntrDiff = (-f(a + 2*h) + 8*f(a + h) - 8*f(a - h) + f(a - 2*h))./(12.*h);
-errICntr = abs(truVal - iCntrDiff);
-disp(['Error in improved central difference: ', num2str(errICntr)]);
 % Plots
 loglog(h, errFwd, '-b', h, errBck, '-g', h, errCntr, '-m');
 hold on;
 loglog(h, errIFwd, '--b', h, errIBck, '--g', h, errICntr, '--m');
-legend('Forward Error', 'Backward Error', 'Central Error', 'Improved
-Forward Error', 'Improved Backward Error', 'Improved Central
-Error', 'Location', 'northwest');
+legend('Forward Error', 'Backward Error', 'Central Error', 'Location', 'northwest');
 % Function
 function fx = f(x)
   fx = atan(x);
